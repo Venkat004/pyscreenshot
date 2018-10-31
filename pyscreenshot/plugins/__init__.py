@@ -14,7 +14,7 @@ if sys.platform == 'linux2':
         qt5grabwindow.Qt5GrabWindow,
         scrot.ScrotWrapper,
         imagemagick.ImagemagickWrapper,
-        pyside_grabwindow.PySideGrabWindow,
+#         pyside_grabwindow.PySideGrabWindow,
         gnome_screenshot.GnomeScreenshotWrapper,
     ]
 elif sys.platform == 'darwin':
@@ -27,7 +27,7 @@ elif sys.platform == 'darwin':
         qt5grabwindow.Qt5GrabWindow,
         scrot.ScrotWrapper,
         imagemagick.ImagemagickWrapper,
-        pyside_grabwindow.PySideGrabWindow,
+#         pyside_grabwindow.PySideGrabWindow,
     ]
 elif sys.platform == 'win32':
     BACKENDS = [
@@ -38,7 +38,7 @@ elif sys.platform == 'win32':
         qt5grabwindow.Qt5GrabWindow,
         scrot.ScrotWrapper,
         imagemagick.ImagemagickWrapper,
-        pyside_grabwindow.PySideGrabWindow,
+#         pyside_grabwindow.PySideGrabWindow,
     ]
 else:
     BACKENDS = [
@@ -51,7 +51,7 @@ else:
         imagemagick.ImagemagickWrapper,
         mac_screencapture.ScreencaptureWrapper,
         mac_quartz.MacQuartzWrapper,
-        pyside_grabwindow.PySideGrabWindow,
+#         pyside_grabwindow.PySideGrabWindow,
         gnome_screenshot.GnomeScreenshotWrapper,
     ]
 
