@@ -4,20 +4,24 @@ python:
  - "3.4"
  - "3.5"
  - "3.6"
- - "3.4_with_system_site_packages"
 
-# Enable 3.7 without globally enabling sudo and dist: xenial for other build jobs
 matrix:
   include:
     - python: "2.7_with_system_site_packages"
       dist: trusty
-      env: DIST="trusty" PACKAGES="python-qt4 python-pyside python-gtk2 python-wxgtk2.8"
+      env: DIST="trusty" PACKAGES="python-qt4 python-pyside python-gtk2 python-wxgtk2.8" TESTS2="test_pyside.py test_pyqt.py test_wx.py test_pygtk.py"
     - python: "2.7_with_system_site_packages"
       dist: xenial
-      env: DIST="xenial" PACKAGES="python-qt4 python-pyside python-gtk2 python-wxgtk3.0"
+      env: DIST="xenial" PACKAGES="python-qt4 python-pyqt5 python-pyside python-gtk2 python-wxgtk3.0" TESTS2="test_pyside.py test_pyqt.py test_pyqt5.py test_wx.py test_pygtk.py"
+    - python: "3.4_with_system_site_packages"
+      dist: trusty
+      env: DIST="trusty" PACKAGES="python-qt4 python-pyside python-gtk2 python-wxgtk2.8" TESTS2="test_pyside.py test_pyqt.py test_wx.py test_pygtk.py"
+    - python: "3.5_with_system_site_packages"
+      dist: xenial
+      env: DIST="xenial" PACKAGES="python-qt4 python-pyqt5 python-pyside python-gtk2 python-wxgtk3.0" TESTS2="test_pyside.py test_pyqt.py test_pyqt5.py test_wx.py test_pygtk.py"
     - python: 3.7
       dist: xenial
-#      sudo: true
+      env: DIST="xenial"
 
 install:
  - sudo apt-get update -q
@@ -31,9 +35,8 @@ install:
 script:  
  - xauth add :0 . `mcookie`
  - cd tests 
- - TESTS="easy test_scrot.py test_imagemagick.py"
- - if [ "$TRAVIS_PYTHON_VERSION" == "2.7_with_system_site_packages" ]; then TESTS="$TESTS test_pyside.py test_pyqt.py test_wx.py test_pygtk.py"; fi
- - nosetests -v --with-coverage --cover-package=pyscreenshot  $TESTS
+ - TESTS1="easy test_scrot.py test_imagemagick.py"
+ - nosetests -v --with-coverage --cover-package=pyscreenshot  $TESTS1 $TESTS2
   
 after_success:
  - coveralls
