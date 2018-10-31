@@ -15,10 +15,10 @@ matrix:
       env: DIST="xenial" PACKAGES="python-qt4 python-pyqt5 python-pyside python-gtk2 python-wxgtk3.0" TESTS2="test_pyside.py test_pyqt.py test_pyqt5.py test_wx.py test_pygtk.py"
     - python: "3.4_with_system_site_packages"
       dist: trusty
-      env: DIST="trusty" PACKAGES="python-qt4 python-pyside python-gtk2 python-wxgtk2.8" TESTS2="test_pyside.py test_pyqt.py test_wx.py test_pygtk.py"
+      env: DIST="trusty" PACKAGES="python3-qt4 python3-pyside python-gtk2 python3-wxgtk2.8" TESTS2="test_pyside.py test_pyqt.py test_wx.py test_pygtk.py"
     - python: "3.5_with_system_site_packages"
       dist: xenial
-      env: DIST="xenial" PACKAGES="python-qt4 python-pyqt5 python-pyside python-gtk2 python-wxgtk3.0" TESTS2="test_pyside.py test_pyqt.py test_pyqt5.py test_wx.py test_pygtk.py"
+      env: DIST="xenial" PACKAGES="python3-qt4 python3-pyqt5 python3-pyside python-gtk2 python3-wxgtk3.0" TESTS2="test_pyside.py test_pyqt.py test_pyqt5.py test_wx.py test_pygtk.py"
     - python: 3.7
       dist: xenial
       env: DIST="xenial"
